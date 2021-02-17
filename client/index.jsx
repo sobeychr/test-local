@@ -1,5 +1,12 @@
-const ttt = () => {
-    const onClick = (e) => console.log('ttt', e);
+import React from 'react';
+import { render } from 'react-dom';
 
-    return <a onClick={onClick}>ttt link</a>;
-};
+const App = () => (
+    <div>
+        <header>some header</header>
+        <main>some content</main>
+        <footer>some footer</footer>
+    </div>
+);
+
+render(<App />, document.getElementById('root'));

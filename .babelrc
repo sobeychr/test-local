@@ -1,0 +1,19 @@
+{
+    "env": {
+        "test": {
+            "presets": [
+                "@babel/env",
+                "@babel/react"
+            ]
+        }
+    },
+    "presets": [
+        "@babel/env",
+        "@babel/react"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-transform-regenerator",
+        "@babel/plugin-transform-runtime"
+    ]
+}
