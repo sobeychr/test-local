@@ -5,10 +5,13 @@ const pathClient = pathRoot.concat('client/');
 const pathDist = pathRoot.concat('dist/');
 const pathSever = pathRoot.concat('server/');
 
-const alias = ['component', 'core', 'page', 'store'].reduce((acc, name) => ({
-    ...acc,
-    [`@${name}`]: pathClient.concat(`${name}/`),
-}));
+const alias = ['component', 'core', 'page', 'store'].reduce(
+    (acc, name) => ({
+        ...acc,
+        [`@${name}`]: pathClient.concat(`${name}/`),
+    }),
+    {},
+);
 
 module.exports = {
     entry: {
@@ -22,7 +25,6 @@ module.exports = {
         bonjour: true,
         compress: true,
         contentBase: pathDist,
-        // host: '0.0.0.0',
         host: 'lreact.vm',
         hot: true,
         inline: true,
@@ -39,7 +41,7 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
