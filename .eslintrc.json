@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "standard"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "ecmaVersion": 12
+  },
+  "plugins": ["react"],
+  "overrides": [
+    { "files": ["client/**/*.js", "client/**/*.jsx", "server/**/*.js", "webpack/**/*.js"] }
+  ],
+  "root": true,
+  "rules": {
+    "comma-dangle": ["warn", "always-multiline"],
+    "indent": ["error", 4],
+    "generator-star-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "linebreak-style": ["error", "unix"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "semi": ["warn", "always"],
+    "space-before-function-paren": ["warn", "never"]
+  },
+  "settings": {
+    "react": {
+      "version": "17.0"
+    }
+  }
+}
