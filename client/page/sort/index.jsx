@@ -4,11 +4,11 @@ import Header from '@component/header/index';
 
 import './style';
 
-const HomePage = () => (
+const SortPage = () => (
     <div>
         <Header />
-        <div>Home page</div>
+        <div>Sort page</div>
     </div>
 );
 
-export default HomePage;
+export default SortPage;

@@ -4,11 +4,11 @@ import Header from '@component/header/index';
 
 import './style';
 
-const HomePage = () => (
+const ParserPage = () => (
     <div>
         <Header />
-        <div>Home page</div>
+        <div>Parser page</div>
     </div>
 );
 
-export default HomePage;
+export default ParserPage;
