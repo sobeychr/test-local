@@ -1,3 +1,4 @@
-export HomePage from './home';
-export ParserPage from './parser';
-export SortPage from './sort';
+export HomePage from './Home';
+export ParserPage from './Parser';
+export SortPage from './Sort';
+export TimerPage from './Timer';

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Header from '@component/header/index';
+import Header from '@component/Header';
 
 import './style';
 
 const ParserPage = () => (
     <div>
-        <Header />
+        <Header currentPage='parser' />
         <div>Parser page</div>
     </div>
 );

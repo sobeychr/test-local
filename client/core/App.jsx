@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Router from './Router';
 import Store from '@store';
 import { onAppInit } from '@store/action/app';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './style';
 
 const App = () => {

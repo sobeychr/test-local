@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Header from '@component/header/index';
+import Header from '@component/Header';
 
 import './style';
 
 const SortPage = () => (
     <div>
-        <Header />
+        <Header currentPage='sort' />
         <div>Sort page</div>
     </div>
 );
