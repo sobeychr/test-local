@@ -11,7 +11,9 @@
         }
 
         button {
-            flex: 0 1 100%;
+            flex: 0 0 100%;
+            max-width: 50%;
+            min-width: 75px;
 
             &:not(.unique):first-child {
                 margin-right: 0.5rem;

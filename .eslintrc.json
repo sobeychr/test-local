@@ -30,6 +30,8 @@
       }
     ],
     "linebreak-style": ["error", "unix"],
+    "multiline-ternary": "warn",
+    "operator-linebreak": ["warn", "before"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "semi": ["warn", "always"],
     "space-before-function-paren": ["warn", "never"]

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 import Header from '@component/Header';
 import Main from '@component/Main';
@@ -65,7 +65,7 @@ const ParserPage = () => {
             <Header currentPage='Parser' />
             <Main className='main-parser'>
                 <Row>
-                    <Col as='ul' className='buttons' sm={3}>
+                    <Col as='ul' className='buttons' sm={4}>
                         {entries}
                     </Col>
                     <Col>

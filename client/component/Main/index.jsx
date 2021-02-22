@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Container } from 'react-bootstrap';
 
 import './style';
 
@@ -8,5 +9,10 @@ const Main = ({ children, className }) => (
         {children}
     </Container>
 );
+
+Main.propTypes = {
+    children: PropTypes.object,
+    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+};
 
 export default Main;

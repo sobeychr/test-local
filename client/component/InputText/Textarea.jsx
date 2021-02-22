@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './style';
 
-const Textarea = ({ className, onChange: onChangeParam, value, ...rest }) => {
+const Textarea = ({ className, onChange: onChangeParam, value = '', ...rest }) => {
     const [input, setInput] = useState(value);
 
     const isEdit = input !== value;
@@ -14,6 +15,12 @@ const Textarea = ({ className, onChange: onChangeParam, value, ...rest }) => {
     };
 
     return <textarea className={classes.join(' ')} onChange={onChange} value={input} {...rest} />;
+};
+
+Textarea.propTypes = {
+    className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string,
 };
 
 export default Textarea;
