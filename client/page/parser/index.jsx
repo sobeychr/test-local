@@ -63,16 +63,16 @@ const ParserPage = () => {
     return (
         <div>
             <Header currentPage='Parser' />
-            <Main>
+            <Main className='main-parser'>
                 <Row>
-                    <Col as='ul' className='buttons'>
+                    <Col as='ul' className='buttons' sm={3}>
                         {entries}
                     </Col>
                     <Col>
-                        <Textarea onChange={onChange} value={''} />
+                        <Textarea className='input' onChange={onChange} value={''} />
                     </Col>
                 </Row>
-                <Row>
+                <Row className='bottom'>
                     <Col>
                         <pre className='output'>{output}</pre>
                     </Col>

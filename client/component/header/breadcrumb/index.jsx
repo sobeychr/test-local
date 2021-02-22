@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './style';
 
 const HeaderBreadcrumb = ({ currentPage }) => {
-    return currentPage === 'home' ? null : (
+    return currentPage === 'Home' ? null : (
         <Breadcrumb>
             <li className='breadcrumb-item'>
                 <Link to='/'>Home</Link>

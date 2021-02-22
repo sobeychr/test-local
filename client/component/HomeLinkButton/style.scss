@@ -1,8 +1,12 @@
+@import '@util/style/mixin';
+
 $color: #007c5b;
 $colorHover: #00dda2;
 
 .home-link-button {
+    background-color: #000;
     border: 2px solid $color;
+    border-radius: 2rem;
     color: $color;
     cursor: pointer;
     display: block;
@@ -13,10 +17,12 @@ $colorHover: #00dda2;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    transition: 0.2s linear border-color, 0.2s linear color;
     width: 45%;
 
+    @include multiTransition(('background-color', 'border-color', 'color'));
+
     &:hover {
+        background-color: rgba($colorHover, 0.1);
         border-color: $colorHover;
         color: $colorHover;
         text-decoration: none;
