@@ -4,7 +4,7 @@ const pathRoot = path.resolve(__dirname, './../').concat('/');
 const pathClient = pathRoot.concat('client/');
 const pathDist = pathRoot.concat('dist/');
 
-const alias = ['component', 'core', 'page', 'store'].reduce(
+const alias = ['component', 'core', 'page', 'store', 'util'].reduce(
     (acc, name) => ({
         ...acc,
         [`@${name}`]: pathClient.concat(`${name}/`),

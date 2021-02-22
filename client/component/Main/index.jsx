@@ -3,8 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 import './style';
 
-const Main = ({ children }) => (
-    <Container as='main' className='main' fluid>
+const Main = ({ children, className }) => (
+    <Container as='main' className={className} fluid>
         {children}
     </Container>
 );

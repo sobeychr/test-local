@@ -1,0 +1,32 @@
+$inputColorOut: #bbb;
+$inputColorIn: #00bc8c;
+$inputColorEdit: #fff;
+
+input[type='text'],
+textarea {
+    border: 1px solid $inputColorOut;
+    border-radius: 7px;
+    background: #121212;
+    color: $inputColorOut;
+    padding: 5px;
+    outline: none;
+
+    &:focus {
+        background: #333;
+        border-color: $inputColorIn;
+        box-shadow: 0 0 2px $inputColorIn;
+        color: $inputColorIn;
+    }
+
+    &.edited {
+        border-color: $inputColorEdit;
+        color: $inputColorEdit;
+    }
+}
+
+input[type='text']:disabled,
+textarea:disabled {
+    background: #333;
+    border: none;
+    font-style: italic;
+}

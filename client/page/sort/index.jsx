@@ -6,7 +6,7 @@ import './style';
 
 const SortPage = () => (
     <div>
-        <Header currentPage='sort' />
+        <Header currentPage='Sort' />
         <div>Sort page</div>
     </div>
 );

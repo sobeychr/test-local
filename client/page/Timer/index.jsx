@@ -7,7 +7,7 @@ import './style';
 
 const TimerPage = () => (
     <div>
-        <Header currentPage='timer' />
+        <Header currentPage='Timer' />
         <Main>timer</Main>
     </div>
 );

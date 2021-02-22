@@ -23,8 +23,8 @@ const links = [
 
 const HomePage = () => (
     <div>
-        <Header currentPage='home' />
-        <Main>
+        <Header currentPage='Home' />
+        <Main className='main-home'>
             {links.map((link, key) => (
                 <HomeLinkButton key={key} {...link} />
             ))}
