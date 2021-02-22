@@ -24,6 +24,7 @@ module.exports = {
         bonjour: true,
         compress: true,
         contentBase: pathDist,
+        historyApiFallback: true,
         host: 'lreact.vm',
         hot: true,
         inline: true,
