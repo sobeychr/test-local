@@ -11,7 +11,7 @@ const Main = ({ children, className }) => (
 );
 
 Main.propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 };
 
