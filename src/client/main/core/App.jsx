@@ -2,12 +2,11 @@ import React from 'react';
 
 import './App.scss';
 
+import Router from './Router';
+
 const App = () => (
     <React.StrictMode>
-        <div>
-            <h2>ttt</h2>
-            <p>lorem ipsum</p>
-        </div>
+        <Router />
     </React.StrictMode>
 );
 
