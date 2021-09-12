@@ -1,31 +1,24 @@
 import React, { useEffect } from 'react';
 import create from 'zustand';
 
+import { fetchJson, sendJson } from '@api';
 import List from './list/List';
 
-const useStore = create(set => ({
+const useStore = create((set) => ({
     workouts: [],
 
-    load: () => {
-        fetch('/api/row')
-            .then(response => response.json())
-            .then(data => set({ workouts: data }))
-            .catch(err => {
-                console.warn('load err', err);
-            });
+    load: async () => {
+        const data = await fetchJson('/api/row');
+        set({ workouts: data });
     },
 
-    send: workout => {
-        fetch('/api/row', {
-            body: JSON.stringify({ workout }),
+    send: async (workout) => {
+        const data = await sendJson({
+            body: { workout },
             method: 'PUT',
-            headers: { accept: 'application/json', 'content-type': 'application/json' },
-        })
-            .then(response => response.json())
-            .then(data => set({ workouts: data }))
-            .catch(err => {
-                console.warn('send err', err);
-            });
+            url: '/api/row',
+        });
+        set({ workouts: data });
     },
 }));
 
@@ -44,13 +37,17 @@ const RowPage = () => {
         loadStore();
     }, []);
 
-    return <div>
-        <h1>Row Page</h1>
-        <section>
-            <button type='button' onClick={onAdd}>add entry</button>
-        </section>
-        <List workouts={workouts} />
-    </div>;
+    return (
+        <div>
+            <h1>Row Page</h1>
+            <section>
+                <button type='button' onClick={onAdd}>
+                    add entry
+                </button>
+            </section>
+            <List workouts={workouts} />
+        </div>
+    );
 };
 
 export default RowPage;

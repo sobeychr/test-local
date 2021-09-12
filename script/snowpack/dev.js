@@ -16,6 +16,7 @@ module.exports = {
     alias: {
         lodash: 'lodash-es',
 
+        '@api': pathCommon.concat('api/'),
         '@component': pathCommon.concat('component/'),
         '@icon': pathCommon.concat('icon/'),
         '@util': pathCommon.concat('util/'),
@@ -43,11 +44,7 @@ module.exports = {
         external: ['fs', 'lodash-es'],
     },
 
-    plugins: [
-        '@snowpack/plugin-react-refresh',
-        '@snowpack/plugin-sass',
-        'snowpack-plugin-svgr',
-    ],
+    plugins: ['@snowpack/plugin-react-refresh', '@snowpack/plugin-sass', 'snowpack-plugin-svgr'],
 
     routes: [
         {

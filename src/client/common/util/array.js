@@ -1,5 +1,3 @@
-const duplicateArray = array => array.concat(array);
+const duplicateArray = (array) => array.concat(array);
 
-export {
-    duplicateArray,
-};
+export { duplicateArray };

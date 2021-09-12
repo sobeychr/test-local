@@ -20,8 +20,7 @@ app.get('/row', async (req, res) => {
         const jsonData = JSON.parse(stringData);
 
         return res.status(200).json(jsonData);
-    }
-    catch(err) {
+    } catch (err) {
         return res.status(400).json({
             err: err.toString(),
             method: 'GET',
@@ -41,8 +40,7 @@ app.put('/row', async (req, res) => {
         writeFileSync(dataPath.concat('row.json'), JSON.stringify(jsonData));
 
         return res.status(200).json(jsonData);
-    }
-    catch(err) {
+    } catch (err) {
         return res.status(400).json({
             err: err.toString(),
             method: 'PUT',
