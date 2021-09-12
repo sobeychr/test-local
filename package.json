@@ -5,10 +5,13 @@
   "repository": "git@github.com:sobeychr/test-local.git",
   "author": "sobeychr <sobey.christopher@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "snowpack dev --config ./script/snowpack/dev.js",
     "devServer": "nodemon --inspect ./src/server/index.js 3030",
-    "lint": "prettier --write public/**/*.html script/**/*.js src/**/*"
+    "pretty": "prettier --write public/**/*.html script/**/*.js src/**/*",
+    "pre-commit": "lint-staged",
+    "postinstall": "husky install"
   },
   "packageManager": "yarn@3.0.2",
   "devDependencies": {
@@ -40,8 +43,8 @@
     }
   },
   "lint-staged": {
-    "public/**/*.html": ["prettier --write"],
-    "script/**/*.js": ["prettier --write"],
-    "src/**/*": ["prettier --write"]
+    "*": [
+      "yarn pretty"
+    ]
   }
 }
