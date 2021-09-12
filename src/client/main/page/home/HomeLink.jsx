@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Hexagon from '@icon/hexagon.jsx';
+import Hexagon from '@icon/hexagon';
 
 const HomeLink = ({ background, href, name }) => (
     <a className='home-link' href={href}>

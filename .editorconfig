@@ -15,6 +15,10 @@ indent_size = 2
 insert_final_newline = false
 quote_type = double
 
+[*.html]
+indent_size = 2
+quote_type = double
+
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false

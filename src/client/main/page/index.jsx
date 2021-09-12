@@ -1,6 +1,7 @@
 import HomePage from './home';
+import NotFound from './notFound';
 import ParserPage from './parser';
-import RowPage from './row';
 import TimerPage from './timer';
+import WorkoutPage from './workout';
 
-export { HomePage, ParserPage, RowPage, TimerPage };
+export { HomePage, NotFound, ParserPage, TimerPage, WorkoutPage };

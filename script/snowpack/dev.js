@@ -7,6 +7,7 @@ const pathPublic = pathRoot.concat('public/');
 const pathSrc = pathRoot.concat('src/');
 const pathClient = pathSrc.concat('client/');
 const pathCommon = pathClient.concat('common/');
+const pathMain = pathClient.concat('main/');
 
 module.exports = {
     mode: 'development',
@@ -21,8 +22,9 @@ module.exports = {
         '@icon': pathCommon.concat('icon/'),
         '@util': pathCommon.concat('util/'),
 
-        '@core': pathClient.concat('main/core/'),
-        '@page': pathClient.concat('main/page/'),
+        '@core': pathMain.concat('core/'),
+        '@module': pathMain.concat('module/'),
+        '@page': pathMain.concat('page/'),
     },
 
     devOptions: {
@@ -36,7 +38,7 @@ module.exports = {
         [pathPublic.concat('asset/')]: { url: '/asset', static: true },
         [pathPublic.concat('nav/')]: '/nav',
 
-        [pathClient.concat('main/')]: '/',
+        [pathMain]: '/',
         [pathClient.concat('nav/')]: '/nav',
     },
 

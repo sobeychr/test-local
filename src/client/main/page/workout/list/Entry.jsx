@@ -6,7 +6,7 @@ const Entry = ({ date, distance, time }) => (
         <main>
             <p>
                 <span className='title'>Date:</span>
-                {date}
+                {date.toString()}
             </p>
             <p>
                 <span className='title'>Distance:</span>

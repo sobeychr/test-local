@@ -5,8 +5,8 @@ import './home.scss';
 
 const links = [
     { background: '#b36242', href: '/parser', name: 'Parser' },
-    { background: '#358219', href: '/row', name: 'Row' },
     { background: '#b39142', href: '/timer', name: 'Timer' },
+    { background: '#358219', href: '/workout', name: 'Workout' },
 ];
 
 const HomePage = () => (
