@@ -1,0 +1,10 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+
+    button {
+        &:nth-child(n + 2) {
+            margin-left: 10px;
+        }
+    }
+}

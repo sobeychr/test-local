@@ -43,7 +43,8 @@ module.exports = {
     },
 
     packageOptions: {
-        external: ['fs', 'lodash-es'],
+        // external: ['reactstrap', 'react-bootstrap', 'fs', 'lodash-es'],
+        // external: ['reactstrap'],
     },
 
     plugins: ['@snowpack/plugin-react-refresh', '@snowpack/plugin-sass', 'snowpack-plugin-svgr'],

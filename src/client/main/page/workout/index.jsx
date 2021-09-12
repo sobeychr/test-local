@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import useWorkout from '@module/workout/store';
 import List from './list/List';
+import { ButtonAdd, ButtonSplit, ModalSplit } from './components';
+import './workout.scss';
 
 const WorkoutPage = () => {
     const { load: loadStore, send: sendStore, workouts } = useWorkout();
+    const [showSplit, setShowSplit] = useState(false);
 
     const onAdd = () => {
         sendStore({
@@ -13,21 +17,22 @@ const WorkoutPage = () => {
         });
     };
 
+    const onSplitHide = () => setShowSplit(false);
+    const onSplitShow = () => setShowSplit(true);
+
     useEffect(() => {
         loadStore();
     }, []);
 
-    console.log('workouts', workouts);
-
     return (
         <div>
             <h1>Workout Page</h1>
-            <section>
-                <button type='button' onClick={onAdd}>
-                    add entry
-                </button>
+            <section className='buttons'>
+                <ButtonSplit onClick={onSplitShow} />
+                <ButtonAdd onClick={onAdd} />
             </section>
             <List workouts={workouts} />
+            <ModalSplit show={showSplit} onClose={onSplitHide} />
         </div>
     );
 };

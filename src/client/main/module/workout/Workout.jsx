@@ -16,11 +16,11 @@ class Workout extends Model {
             ...sortData,
             date: newDate,
             time: timestampToString(time),
-        }
+        };
     }
 
     static parseList(list) {
-        return list.map(entry => new Workout(entry));
+        return list.map((entry) => new Workout(entry));
     }
 }
 

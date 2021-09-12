@@ -12,9 +12,9 @@
   },
   "packageManager": "yarn@3.0.2",
   "devDependencies": {
-    "@babel/preset-react": "^7.14.5",
     "@snowpack/plugin-react-refresh": "^2.5.0",
     "@snowpack/plugin-sass": "^1.4.0",
+    "bootstrap": "^5.1.1",
     "cross-env": "^7.0.3",
     "http2-proxy": "^5.0.53",
     "husky": "^7.0.2",
@@ -40,6 +40,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,html,scss}": ["prettier --write"]
+    "public/**/*.html": ["prettier --write"],
+    "script/**/*.js": ["prettier --write"],
+    "src/**/*": ["prettier --write"]
   }
 }
