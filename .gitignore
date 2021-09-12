@@ -1,7 +1,6 @@
 _pre/
 
 node_modules/
-dist/*.js
-dist/*.map
+script/data/*
 
 yarn-error.log

@@ -12,6 +12,7 @@ quote_type = single
 
 [*.json]
 indent_size = 2
+insert_final_newline = false
 quote_type = double
 
 [*.md]
