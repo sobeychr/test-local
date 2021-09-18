@@ -1,0 +1,50 @@
+{
+  "env":
+  {
+    "browser": true,
+    "es2021": true
+  },
+  "extends":
+  [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "overrides":
+  [
+    {
+      "env":
+      {
+        "browser": false,
+        "es2021": true,
+        "node": true
+      },
+      "files":
+      [
+        "script/**/*.js",
+        "src/server/**/*.js"
+      ]
+    }
+  ],
+  "parserOptions":
+  {
+    "ecmaFeatures":
+    {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins":
+  [
+    "react"
+  ],
+  "rules":
+  {},
+  "settings":
+  {
+    "react":
+    {
+      "version": "detect"
+    }
+  }
+}

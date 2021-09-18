@@ -4,7 +4,7 @@ const path = require('path');
 
 const rootPath = path.resolve(__dirname, './../../').concat('/');
 const dataPath = rootPath.concat('script/data/');
-const srcPath = rootPath.concat('src/');
+// const srcPath = rootPath.concat('src/');
 
 const app = express();
 const port = 3030;
