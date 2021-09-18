@@ -1,30 +1,25 @@
 import reactRefresh from '@vitejs/plugin-react-refresh';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import path from 'path';
 
-const pathRoot = path.resolve(__dirname, './../../').concat('/');
-
-const pathPublic = pathRoot.concat('public/');
-const pathSrc = pathRoot.concat('src/');
-const pathClient = pathSrc.concat('client/');
+const pathRoot = resolve(__dirname, '../../').concat('/');
+const pathClient = pathRoot.concat('src/client/');
 const pathCommon = pathClient.concat('common/');
 const pathMain = pathClient.concat('main/');
 
 export default defineConfig({
     mode: 'development',
-    root: pathSrc,
+    root: pathRoot,
 
-    build: {
-        outDir: 'public/main',
-        assetsDir: 'public/asset',
-    },
+    base: '/',
 
     plugins: [reactRefresh()],
 
-    public: pathPublic.concat('main/'),
+    publicDir: pathRoot.concat('public/'),
 
     resolve: {
         alias: {
+            '@bootstrap': pathRoot.concat('node_modules/bootstrap/scss/bootstrap'),
             lodash: 'lodash-es',
 
             '@api': pathCommon.concat('api/'),
@@ -44,7 +39,11 @@ export default defineConfig({
         strictPort: true,
 
         proxy: {
-            '/api': 'http://lreact.vm:3030',
+            '/api': {
+                target: 'http://lreact.vm:3030',
+                changeOrigin: true,
+                rewrite: (path) => path.replace('/api', ''),
+            },
         },
     },
 });

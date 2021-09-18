@@ -10,9 +10,7 @@
     "dev": "vite --config script/vite/dev.config.js",
     "devServer": "nodemon --inspect ./src/server/index.js 3030",
     "lint": "eslint ./script ./src",
-    "pretty": "prettier --write public/**/*.html script/**/*.js src/**/*",
-    "precommit": "yarn pretty && yarn lint --fix",
-    "postinstall": "husky install",
+    "pretty": "prettier --write script/**/* !script/data/**/* src/**/*",
     "test": "echo \"mock - should fail\" && exit 1"
   },
   "devDependencies": {
@@ -22,10 +20,10 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.25.2",
-    "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.0",
     "proptypes": "^1.1.0",
+    "sass": "^1.41.1",
     "vite": "^2.5.9"
   },
   "dependencies": {
@@ -38,6 +36,5 @@
     "react-router-dom": "^5.3.0",
     "uninstall": "0.0.0",
     "zustand": "^3.5.10"
-  },
-  "packageManager": "yarn@3.0.2"
+  }
 }
