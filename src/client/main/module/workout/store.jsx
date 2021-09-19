@@ -16,7 +16,7 @@ const useWorkout = create((set) => ({
             method: 'PUT',
             url: '/api/row',
         });
-        set({ workouts: data });
+        set({ workouts: Workout.parseList(data) });
     },
 }));
 

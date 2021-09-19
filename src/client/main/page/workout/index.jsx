@@ -2,37 +2,49 @@ import React, { useEffect, useState } from 'react';
 
 import useWorkout from '@module/workout/store';
 import List from './list/List';
-import { ButtonAdd, ButtonSplit, ModalSplit } from './components';
+import { ButtonAdd, ButtonSplit, ModalAddEntry, ModalLoading, ModalSplit } from './components';
 import './workout.scss';
 
 const WorkoutPage = () => {
     const { load: loadStore, send: sendStore, workouts } = useWorkout();
+    const [isLoading, setIsLoading] = useState(false);
+    const [showAddEntry, setAddEntry] = useState(false);
     const [showSplit, setShowSplit] = useState(false);
 
-    const onAdd = () => {
+    const onAdd = (entry) => {
+        setIsLoading(true);
         sendStore({
+            ...entry,
             date: Date.now(),
-            distance: Math.round(Math.random() * 1000),
-            time: 60 * 20,
+        }).then(() => {
+            setIsLoading(false);
         });
     };
 
-    const onSplitHide = () => setShowSplit(false);
-    const onSplitShow = () => setShowSplit(true);
+    const onHideAddEntry = () => setAddEntry(false);
+    const onHideSplit = () => setShowSplit(false);
+
+    const onShowAddEntry = () => setAddEntry(true);
+    const onShowSplit = () => setShowSplit(true);
 
     useEffect(() => {
-        loadStore();
+        setIsLoading(true);
+        loadStore().then(() => {
+            setIsLoading(false);
+        });
     }, []);
 
     return (
         <div>
             <h1>Workout Page</h1>
             <section className='buttons'>
-                <ButtonSplit onClick={onSplitShow} />
-                <ButtonAdd onClick={onAdd} />
+                <ButtonSplit onClick={onShowSplit} />
+                <ButtonAdd onClick={onShowAddEntry} />
             </section>
             <List workouts={workouts} />
-            <ModalSplit show={showSplit} onClose={onSplitHide} />
+            <ModalAddEntry onClose={onHideAddEntry} onSubmit={onAdd} show={showAddEntry} />
+            <ModalLoading show={isLoading} />
+            <ModalSplit onClose={onHideSplit} show={showSplit} />
         </div>
     );
 };

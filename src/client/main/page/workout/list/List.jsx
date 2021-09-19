@@ -1,13 +1,14 @@
 import React from 'react';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 import Entry from './Entry';
 
 const List = ({ workouts }) => (
-    <section>
+    <CardGroup as='section' className='workout-list'>
         {workouts.map((entry, key) => (
             <Entry key={key} {...entry} />
         ))}
-    </section>
+    </CardGroup>
 );
 
 export default List;

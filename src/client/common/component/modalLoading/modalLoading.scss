@@ -1,0 +1,21 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal-loading {
+    .modal-content {
+        animation: rotate 1s infinite linear;
+        background: transparent;
+        border: 5px solid transparent;
+        border-left-color: #ddd;
+        border-radius: 50%;
+        height: 200px;
+        margin: 200px auto 0;
+        width: 200px;
+    }
+}

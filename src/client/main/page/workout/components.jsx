@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/modal';
-import ModalBody from 'react-bootstrap/modalbody';
-import ModalHeader from 'react-bootstrap/modalheader';
-import ModalTitle from 'react-bootstrap/modaltitle';
+
+import ModalLoading from '@component/modalLoading';
+import ModalAddEntry from './addEntry';
+import ModalSplit from './split';
 
 const ButtonAdd = ({ onClick }) => (
     <Button onClick={onClick} variant='success'>
@@ -17,13 +17,4 @@ const ButtonSplit = ({ onClick }) => (
     </Button>
 );
 
-const ModalSplit = ({ onClose, show }) => (
-    <Modal show={show} onHide={onClose}>
-        <ModalHeader closeButton>
-            <ModalTitle>Calculate Split</ModalTitle>
-        </ModalHeader>
-        <ModalBody>Lorem ipsum</ModalBody>
-    </Modal>
-);
-
-export { ButtonAdd, ButtonSplit, ModalSplit };
+export { ButtonAdd, ButtonSplit, ModalAddEntry, ModalLoading, ModalSplit };
