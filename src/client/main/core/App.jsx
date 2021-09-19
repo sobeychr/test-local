@@ -4,10 +4,6 @@ import './App.scss';
 
 import Router from './Router';
 
-const App = () => (
-    <React.StrictMode>
-        <Router />
-    </React.StrictMode>
-);
+const App = () => <Router />;
 
 export default App;
