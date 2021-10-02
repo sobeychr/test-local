@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import Header from '@component/header';
 import useWorkout from '@module/workout/store';
 import List from './list/List';
 import { ButtonAdd, ButtonSplit, ModalAddEntry, ModalLoading, ModalSplit } from './components';
@@ -39,7 +39,7 @@ const WorkoutPage = () => {
 
     return (
         <div>
-            <h1>Workout Page</h1>
+            <Header page='Workout' />
             <section className='buttons'>
                 <ButtonSplit onClick={onShowSplit} />
                 <ButtonAdd onClick={onShowAddEntry} />

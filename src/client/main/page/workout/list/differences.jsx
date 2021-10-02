@@ -1,10 +1,4 @@
-import {
-    DUR_SECOND,
-    DUR_MINUTE,
-    DUR_HOUR,
-    DUR_DAY,
-    DUR_WEEK,
-} from '@util/date';
+import { DUR_SECOND, DUR_MINUTE, DUR_HOUR, DUR_DAY, DUR_WEEK } from '@util/date';
 
 const margins = {
     calory: [
@@ -47,7 +41,7 @@ const margins = {
 };
 
 const diffEntries = (current, next) => {
-    if(!next) {
+    if (!next) {
         return null;
     }
 
@@ -56,12 +50,14 @@ const diffEntries = (current, next) => {
     const res = Object.keys(values).reduce((acc, key) => {
         const value = acc[key];
 
-        const entry = margins[key] && margins[key].find(({ above, below }) => {
-            if(above && below) return value > above && value < below;
-            else if(above && !below) return value > above;
-            else if(!above && below) return value < below;
-            return null;
-        });
+        const entry =
+            margins[key] &&
+            margins[key].find(({ above, below }) => {
+                if (above && below) return value > above && value < below;
+                else if (above && !below) return value > above;
+                else if (!above && below) return value < below;
+                return null;
+            });
         const { className = 'plain' } = entry || {};
 
         return {
@@ -96,8 +92,7 @@ const diffEntries = (current, next) => {
         res,
     });
 
-    return {
-    };
+    return {};
 };
 
 const diffValues = (current, next) => ({

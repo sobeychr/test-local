@@ -48,10 +48,10 @@ const getTimestampFullDate = (ts) => `${getTimestampDate(ts)} ${getTimestampTime
 
 const timestampToString = (ts, ms = false) => {
     const weeks = Math.floor(ts / DUR_WEEK);
-    const days = Math.floor(ts % DUR_WEEK / DUR_DAY);
-    const hours = Math.floor(ts % DUR_DAY / DUR_HOUR);
-    const minutes = Math.floor(ts % DUR_HOUR / DUR_MINUTE);
-    const seconds = Math.floor(ts % DUR_MINUTE / DUR_SECOND);
+    const days = Math.floor((ts % DUR_WEEK) / DUR_DAY);
+    const hours = Math.floor((ts % DUR_DAY) / DUR_HOUR);
+    const minutes = Math.floor((ts % DUR_HOUR) / DUR_MINUTE);
+    const seconds = Math.floor((ts % DUR_MINUTE) / DUR_SECOND);
     const milliseconds = Math.floor(ts % DUR_SECOND);
 
     return [
@@ -72,7 +72,6 @@ export {
     DUR_HOUR,
     DUR_DAY,
     DUR_WEEK,
-
     getTimestampDate,
     getTimestampFullDate,
     getTimestampTime,

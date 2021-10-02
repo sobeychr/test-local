@@ -49,6 +49,21 @@ app.put('/row', async (req, res) => {
     }
 });
 
+app.get('/rune', async (req, res) => {
+    try {
+        const stringData = readFileSync(dataPath.concat('diablo2/rune.json'), 'utf8');
+        const jsonData = JSON.parse(stringData);
+
+        return res.status(200).json(jsonData);
+    } catch (err) {
+        return res.status(400).json({
+            err: err.toString(),
+            method: 'GET',
+            path: '/rune',
+        });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Listening to http://lreact.vm:${port}`);
 });

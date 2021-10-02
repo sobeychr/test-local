@@ -44,15 +44,7 @@ class Workout extends Model {
         },
     };
 
-    static dataToDisplay = ({
-        calory,
-        date,
-        distance,
-        split,
-        stroke,
-        time,
-        watt,
-    }) => ({
+    static dataToDisplay = ({ calory, date, distance, split, stroke, time, watt }) => ({
         calory: calory ? `${calory}cal` : NA,
         date: date ? getTimestampFullDate(date) : NA,
         distance: distance ? `${distance}m` : NA,
@@ -80,7 +72,8 @@ class Workout extends Model {
     static parseList = (list) => {
         const entries = list.map((entry) => new Workout(entry)).sort(this.sort);
 
-        const totals = entries.reduce((acc, entry) => ({
+        const totals = entries.reduce(
+            (acc, entry) => ({
                 ...acc,
                 calory: acc.calory + entry.calory,
                 distance: acc.distance + entry.distance,
@@ -89,7 +82,8 @@ class Workout extends Model {
                 time: acc.time + entry.time,
                 watt: acc.watt + entry.watt,
             }),
-            this.average);
+            this.average,
+        );
 
         this.average = {
             calory: totals.calory / entries.length,
@@ -105,7 +99,7 @@ class Workout extends Model {
         return entries;
     };
 
-    static sort = (a, b) => a.date > b.date ? -1 : 1;
+    static sort = (a, b) => (a.date > b.date ? -1 : 1);
 }
 
 export default Workout;

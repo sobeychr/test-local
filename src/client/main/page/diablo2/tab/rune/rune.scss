@@ -1,0 +1,70 @@
+.tab-rune {
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    margin: 10px auto 0 auto;
+    max-width: 750px;
+    padding: 10px;
+
+    &--list {
+        list-style: none;
+        margin: 0;
+        padding: 0 20px;
+
+        &--entry {
+            align-items: center;
+            border-left: 2px solid transparent;
+            display: flex;
+            flex-flow: row nowrap;
+            font-size: 10pt;
+            justify-content: space-between;
+            min-height: 40px;
+            padding: 5px;
+            text-align: center;
+
+            &:hover {
+                border-color: rgba(255, 0, 0, 0.3);
+                box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.6);
+            }
+
+            &:nth-child(2n) {
+                background: rgb(32, 16, 10);
+            }
+
+            .level {
+                flex: 0 0 25px;
+            }
+
+            .title {
+                align-items: center;
+                display: flex;
+
+                .icon {
+                    display: inline-block;
+                }
+
+                .name {
+                    color: rgb(255, 165, 0);
+                    display: inline-block;
+                    font-weight: bold;
+                    width: 40px;
+                }
+            }
+
+            .armor,
+            .weapon {
+                flex: 0 1 50%;
+            }
+        }
+    }
+
+    &--header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        .input-group {
+            width: calc(100% - 150px);
+        }
+    }
+}

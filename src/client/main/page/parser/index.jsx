@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from '@component/header';
 
 const ParserPage = () => (
     <div>
-        <h1>Parser Page</h1>
+        <Header page='Parser' />
+        <h1>alpha beta ttt</h1>
     </div>
 );
 

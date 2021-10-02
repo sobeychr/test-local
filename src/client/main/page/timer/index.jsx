@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from '@component/header';
 
 const TimerPage = () => (
     <div>
-        <h1>Timer Page</h1>
+        <Header page='Timer' />
+        <p>Lorem ipsum</p>
     </div>
 );
 
