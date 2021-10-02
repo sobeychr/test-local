@@ -23,6 +23,8 @@
     }
 }
 
+$diffMargin: 7px;
+
 .workout-list {
     flex-flow: column nowrap;
     margin: 30px auto;
@@ -54,12 +56,20 @@
                 &:hover {
                     background: #333;
                 }
-
                 .title {
                     font-weight: bold;
                 }
                 .value {
                     // color: #3b69ff;
+
+                    .diff {
+                        display: none;
+                        margin-left: $diffMargin;
+
+                        &:empty {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -71,6 +81,14 @@
             .date {
                 color: #fff;
                 font-style: italic;
+
+                .diff {
+                    margin-left: $diffMargin;
+
+                    &:empty {
+                        display: none;
+                    }
+                }
             }
             .title {
                 font-weight: bold;

@@ -2,5 +2,6 @@ _pre/
 
 node_modules/
 script/data/*
+!script/data/*.mock*
 
 yarn-error.log

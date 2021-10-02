@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite --config script/vite/dev.config.js",
     "devServer": "nodemon --inspect ./src/server/index.js 3030",
-    "lint": "eslint ./script ./src",
+    "lint": "eslint script/**/* src/**/*",
     "pretty": "prettier --write script/**/* !script/data/**/* src/**/*",
     "test": "echo \"mock - should fail\" && exit 1"
   },

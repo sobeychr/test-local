@@ -12,6 +12,8 @@ const WorkoutPage = () => {
     const [showSplit, setShowSplit] = useState(false);
 
     const onAdd = (entry) => {
+        console.log('onAdd', entry);
+        /*
         setIsLoading(true);
         sendStore({
             ...entry,
@@ -19,6 +21,7 @@ const WorkoutPage = () => {
         }).then(() => {
             setIsLoading(false);
         });
+        */
     };
 
     const onHideAddEntry = () => setAddEntry(false);

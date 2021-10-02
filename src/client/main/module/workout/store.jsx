@@ -20,4 +20,11 @@ const useWorkout = create((set) => ({
     },
 }));
 
+useWorkout.subscribe(({ workouts: updated }, { workouts: previous }) =>
+    console.log('%cWorkout Update', 'color:#0d0', {
+        previous,
+        updated,
+    }),
+);
+
 export default useWorkout;

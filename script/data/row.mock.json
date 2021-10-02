@@ -1,0 +1,34 @@
+[
+  {
+    "calory": 485,
+    "date": 1632028120155,
+    "distance": 4700,
+    "stroke": 27,
+    "time": 1500000,
+    "watt": 300
+  },
+  {
+    "calory": 313,
+    "date": 1632153600000,
+    "distance": 2905,
+    "stroke": 21,
+    "time": 900000,
+    "watt": 330
+  },
+  {
+    "calory": 430,
+    "date": 1632239531049,
+    "distance": 4025,
+    "stroke": 0,
+    "time": 1260000,
+    "watt": 320
+  },
+  {
+    "calory": 502,
+    "date": 1632415411956,
+    "distance": 4802,
+    "stroke": 25,
+    "time": 1500000,
+    "watt": 310
+  }
+]

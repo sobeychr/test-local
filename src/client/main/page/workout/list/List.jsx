@@ -5,8 +5,8 @@ import Entry from './Entry';
 
 const List = ({ workouts }) => (
     <CardGroup as='section' className='workout-list'>
-        {workouts.map((entry, key) => (
-            <Entry key={key} {...entry} />
+        {workouts.map((current, key) => (
+            <Entry current={current} key={key} next={workouts[key + 1]} />
         ))}
     </CardGroup>
 );

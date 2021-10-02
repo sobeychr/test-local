@@ -13,7 +13,7 @@ import Row from 'react-bootstrap/Row';
 import { timestampToString, timeStringToTimestamp } from '@util/date';
 import { chunk } from '@util/string';
 
-import splitCalc from '../splitCalc';
+// import splitCalc from '../splitCalc';
 
 const REG_NUM = /[^\d]+/;
 const REG_SPACE = /\s+$/;
@@ -53,13 +53,15 @@ const ModalSplit = ({ onClose, show }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        /*
         const splitTime = splitCalc({
             distance,
             minute,
             second,
         });
-
         setSplit(timestampToString(splitTime, true));
+        */
+        splitTime = 'ttt';
     };
 
     useEffect(() => {

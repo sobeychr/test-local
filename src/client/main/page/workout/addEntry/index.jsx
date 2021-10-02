@@ -12,9 +12,6 @@ import ModalTitle from 'react-bootstrap/modaltitle';
 import Row from 'react-bootstrap/Row';
 
 import { timestampToString, timeStringToTimestamp } from '@util/date';
-import { chunk } from '@util/string';
-
-import splitCalc from '../splitCalc';
 
 const REG_NUM = /[^\d]+/;
 const REG_SPACE = /\s+$/;
@@ -52,6 +49,7 @@ const ModalAddEntry = ({ onClose, onSubmit: onSubmitProp, show }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        /*
         const splitTime = splitCalc({
             distance,
             minute,
@@ -59,6 +57,7 @@ const ModalAddEntry = ({ onClose, onSubmit: onSubmitProp, show }) => {
         });
 
         setSplit(timestampToString(splitTime, true));
+        */
 
         onSubmitProp({
             calory: parseInt(calory, 10),

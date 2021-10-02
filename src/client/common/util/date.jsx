@@ -1,5 +1,11 @@
 import { leadingZero } from './number';
 
+const DUR_SECOND = 1000;
+const DUR_MINUTE = DUR_SECOND * 60;
+const DUR_HOUR = DUR_MINUTE * 60;
+const DUR_DAY = DUR_HOUR * 24;
+const DUR_WEEK = DUR_DAY * 7;
+
 const timeStringToTimestamp = (string) => {
     const split = string.split(':');
 
@@ -41,14 +47,19 @@ const getTimestampTime = (ts) => {
 const getTimestampFullDate = (ts) => `${getTimestampDate(ts)} ${getTimestampTime(ts)}`;
 
 const timestampToString = (ts, ms = false) => {
-    const hours = Math.floor(ts / 60 / 60);
-    const minutes = Math.floor((ts - hours * 60 * 60) / 60);
-    const seconds = Math.floor(ts - minutes * 60);
-    const milliseconds = Math.floor((ts % 1) * 1000);
+    const weeks = Math.floor(ts / DUR_WEEK);
+    const days = Math.floor(ts % DUR_WEEK / DUR_DAY);
+    const hours = Math.floor(ts % DUR_DAY / DUR_HOUR);
+    const minutes = Math.floor(ts % DUR_HOUR / DUR_MINUTE);
+    const seconds = Math.floor(ts % DUR_MINUTE / DUR_SECOND);
+    const milliseconds = Math.floor(ts % DUR_SECOND);
+
     return [
-        hours && `${hours}h`,
-        minutes && `${minutes}m`,
-        seconds && `${seconds}s`,
+        weeks && `${weeks}w`,
+        days && `${days}d`,
+        hours && `${leadingZero(hours)}h`,
+        minutes && `${leadingZero(minutes)}m`,
+        seconds && `${leadingZero(seconds)}s`,
         ms && milliseconds && `${milliseconds}ms`,
     ]
         .filter(Boolean)
@@ -56,6 +67,12 @@ const timestampToString = (ts, ms = false) => {
 };
 
 export {
+    DUR_SECOND,
+    DUR_MINUTE,
+    DUR_HOUR,
+    DUR_DAY,
+    DUR_WEEK,
+
     getTimestampDate,
     getTimestampFullDate,
     getTimestampTime,
