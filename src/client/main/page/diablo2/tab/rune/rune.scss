@@ -54,6 +54,10 @@
             .armor,
             .weapon {
                 flex: 0 1 50%;
+
+                span {
+                    display: block;
+                }
             }
         }
     }

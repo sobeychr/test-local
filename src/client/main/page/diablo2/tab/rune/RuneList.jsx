@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, InputGroup } from 'react-bootstrap';
 import throttle from 'lodash/throttle';
 import useRune from '@module/rune/store';
-import { loadCss, removeCss } from '@util/dom';
 import RuneListEntry from './RuneListEntry';
 
 const cssId = 'runelist-css-styles';
@@ -23,23 +22,12 @@ const RuneList = () => {
     };
 
     useEffect(() => {
-        if(!isRuneLoaded) {
-            setIsLoading(true);
-            loadRune().then(() => {
-                setIsLoading(false);
-            });
-        }
-
-        loadCss({ fileLink: cssLink, id: cssId });
-
-        return () => {
-            removeCss(cssId);
-        };
+        loadRune();
     }, []);
 
     useEffect(() => {
         setRuneList(runes);
-    }, [runes])
+    }, [runes]);
 
     return (
         <div>

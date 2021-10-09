@@ -8,6 +8,8 @@ module.exports = (grunt) => {
                 src: 'script/data/diablo2/runeImage/*.gif',
                 dest: 'public/diablo2/runes.png',
                 destCss: 'public/diablo2/runes.css',
+
+                imgPath: '/diablo2/runes.png',
             },
         },
     });

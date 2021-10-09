@@ -2,7 +2,7 @@ import create from 'zustand';
 import { fetchJson } from '@api';
 import Rune from './Rune';
 
-const useRune = create((set) => ({
+const useRune = create((set, get) => ({
     isRuneLoaded: false,
     isRuneWordLoaded: false,
 
@@ -10,11 +10,11 @@ const useRune = create((set) => ({
     runewords: [],
 
     loadRune: async () => {
-        const data = await fetchJson('/api/rune');
-        set({
-            isRuneLoaded: true,
-            runes: Rune.parseList(data),
-        });
+        if(!get().isRuneLoaded) {
+            set({ isRuneLoaded: true });
+            const data = await fetchJson('/api/rune');
+            set({ runes: Rune.parseList(data) });
+        }
     },
 }));
 
