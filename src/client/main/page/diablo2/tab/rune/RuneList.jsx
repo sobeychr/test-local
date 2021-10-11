@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputGroup } from 'react-bootstrap';
-import throttle from 'lodash/throttle';
 import useRune from '@module/rune/store';
 import Rune from '@module/rune/Rune';
 import RuneListEntry from './RuneListEntry';
@@ -41,7 +40,7 @@ const RuneList = () => {
             </div>
             <ul className='list'>
                 {runeList.map((entry, key) => (
-                    <RuneListEntry key={key} {...entry} />
+                    <RuneListEntry entry={entry} key={key} />
                 ))}
             </ul>
         </div>

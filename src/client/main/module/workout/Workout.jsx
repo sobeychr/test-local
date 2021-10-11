@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Model from '@api/model';
 import { splitCalc } from './helper';
 import { getTimestampFullDate, timestampToString } from '@util/date';

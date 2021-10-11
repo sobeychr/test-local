@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": false
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "overrides": [
@@ -14,6 +15,7 @@
       "files": ["script/**/*.js", "src/server/**/*.js"]
     }
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

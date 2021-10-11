@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { InputGroup } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/dropdownbutton';
 import DropdownItem from 'react-bootstrap/dropdownitem';
@@ -24,6 +25,13 @@ const FilterType = ({ initValue, list, onChange, title }) => {
             </DropdownButton>
         </InputGroup>
     );
+};
+
+FilterType.propTypes = {
+    initValue: PropTypes.string,
+    list: PropTypes.arrayOf(PropTypes.string),
+    onChange: PropTypes.func,
+    title: PropTypes.string,
 };
 
 export default FilterType;

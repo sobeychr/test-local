@@ -10,6 +10,7 @@ yarn-error.log
 **/*.map
 **/*.png
 **/*.snap
+**/*.scss
 **/*.svg
 **/*.txt
 **/*.xml

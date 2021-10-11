@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import CardGroup from 'react-bootstrap/CardGroup';
 

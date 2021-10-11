@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import RuneWord from '@module/rune/RuneWord';
 import RuneIcon from '../../component/runeIcon';
 
 const RuneIconEntry = ({ name }) => (
@@ -8,7 +10,11 @@ const RuneIconEntry = ({ name }) => (
     </span>
 );
 
-const RuneWordListEntry = ({ category, items, name, runeorder, stats }) => (
+RuneIconEntry.propTypes = {
+    name: PropTypes.string,
+};
+
+const RuneWordListEntry = ({ entry: { items, name, runeorder, stats } }) => (
     <li className='entry'>
         <span className='title'>{name}</span>
         <span className='item'>{`${runeorder.length} sockets ${items.join(', ')}`}</span>
@@ -26,5 +32,9 @@ const RuneWordListEntry = ({ category, items, name, runeorder, stats }) => (
         </span>
     </li>
 );
+
+RuneWordListEntry.propTypes = {
+    entry: PropTypes.instanceOf(RuneWord).isRequired,
+};
 
 export default RuneWordListEntry;

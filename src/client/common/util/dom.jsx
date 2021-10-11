@@ -45,4 +45,4 @@ const removeFileLink = (id) => {
     }
 };
 
-export { appendFileLink, createElement, loadCss, removeFileLink };
+export { appendFileLink, createElement, loadCss, loadJs, removeFileLink };

@@ -21,7 +21,6 @@ class RuneWord extends Model {
         const itemSet = new Set(parsed.reduce((acc, { items }) => [...acc, ...items], []));
         this.items = [this.defaultItem, ...itemSet].sort();
 
-        const categorySet = new Set(parsed.reduce((acc, { category }) => [...acc, category], []));
         this.categories = [this.defaultCategory, 'original', '1.10', '1.10 La', '1.11'];
 
         return parsed;
@@ -71,6 +70,9 @@ class RuneWord extends Model {
                     .map((entry) => listRunes.includes(entry) && entry)
                     .filter(Boolean);
                 const validRunes = intersectRunes.length === findRunes.length;
+                if(!validRunes) {
+                    return false;
+                }
             }
 
             return true;

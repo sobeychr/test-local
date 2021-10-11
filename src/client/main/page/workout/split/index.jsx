@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -11,7 +12,7 @@ import ModalTitle from 'react-bootstrap/modaltitle';
 import Row from 'react-bootstrap/Row';
 
 import { timestampToString, timeStringToTimestamp } from '@util/date';
-import { chunk } from '@util/string';
+// import { chunk } from '@util/string';
 
 // import splitCalc from '../splitCalc';
 

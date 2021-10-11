@@ -1,5 +1,3 @@
-import { timestampToString } from '@util/date';
-
 const splitCalc = (distance, time) => {
     const meter = parseInt(distance, 10);
     const splitMeter = meter / 500;

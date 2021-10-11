@@ -9,7 +9,7 @@ const fileMap = {
 const tracker = {};
 
 const useLinkCss = ({ id, remove = false }) => {
-    if (!fileMap.hasOwnProperty(id)) {
+    if (!fileMap[id]) {
         throw new Error(`Unable to useLinkCss with "${id}"`);
     }
 

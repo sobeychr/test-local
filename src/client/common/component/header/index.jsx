@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import BreadcrumbItem from 'react-bootstrap/BreadcrumbItem';
@@ -13,5 +14,9 @@ const Header = ({ page }) => (
         <BreadcrumbItem active>{page}</BreadcrumbItem>
     </Breadcrumb>
 );
+
+Header.propTypes = {
+    page: PropTypes.string.isRequired,
+};
 
 export default Header;

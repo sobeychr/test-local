@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Hexagon = ({ background, borderColor, borderWidth }) => (
     <svg viewBox='0 0 100 100'>
@@ -10,5 +11,11 @@ const Hexagon = ({ background, borderColor, borderWidth }) => (
         />
     </svg>
 );
+
+Hexagon.propTypes = {
+    background: PropTypes.string,
+    borderColor: PropTypes.string,
+    borderWidth: PropTypes.number,
+};
 
 export default Hexagon;

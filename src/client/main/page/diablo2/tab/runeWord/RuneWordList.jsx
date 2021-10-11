@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputGroup } from 'react-bootstrap';
-import throttle from 'lodash/throttle';
 import useRune from '@module/rune/store';
 import RuneWord from '@module/rune/RuneWord';
 import FilterType from './FilterType';
@@ -101,7 +100,7 @@ const RuneWordList = () => {
             </div>
             <ul className='list'>
                 {runeWordList.map((entry, key) => (
-                    <RuneWordListEntry key={key} {...entry} />
+                    <RuneWordListEntry entry={entry} key={key} />
                 ))}
             </ul>
         </div>

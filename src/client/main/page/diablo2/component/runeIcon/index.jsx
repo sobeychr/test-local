@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
-import useLinkCss from '@component/useLinkDocument/useLinkCss';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { RUNES } from '@component/useLinkDocument/entries';
-import useRune from '@module/rune/store';
+import useLinkCss from '@component/useLinkDocument/useLinkCss';
 import './runeIcon.scss';
 
 const RuneIcon = ({ name }) => {
-    const { validateRune } = useRune();
     useLinkCss({ id: RUNES, remove: true });
-
-    /*
-    useEffect(() => {
-        if(!validateRune(name)) {
-            throw new Error(`Unable to find rune "${name}"`);
-        }
-    }, []);
-    */
-
     return <div className={`runeIcon icon-rune${name}`} />;
+};
+
+RuneIcon.propTypes = {
+    name: PropTypes.string.isRequired,
 };
 
 export default RuneIcon;

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { DUR_SECOND, DUR_MINUTE, DUR_HOUR, DUR_DAY, DUR_WEEK } from '@util/date';
 
 const margins = {
