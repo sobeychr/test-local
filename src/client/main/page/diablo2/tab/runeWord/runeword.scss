@@ -5,10 +5,25 @@
             flex-flow: column nowrap;
             margin: 10px 0 20px;
 
+            .filter-type {
+                button,
+                .filter-type-entry {
+                    text-transform: capitalize;
+                }
+            }
+
             .filter-row {
                 display: flex;
                 flex-flow: row nowrap;
-                justify-content: space-between;
+                justify-content: center;
+
+                &:nth-child(n + 2) {
+                    margin-top: 10px;
+                }
+
+                .dropdown {
+                    width: auto;
+                }
 
                 .input-group:nth-child(n + 2) {
                     margin-left: 10px;

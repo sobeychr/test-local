@@ -19,23 +19,25 @@ const createElement = ({ props, tag }) => {
     return element;
 };
 
-const loadCss = ({ fileLink, id }) => appendFileLink({
-    id,
-    props: {
-        href: fileLink,
-        rel: 'stylesheet',
-    },
-    tag: 'link',
-});
+const loadCss = ({ fileLink, id }) =>
+    appendFileLink({
+        id,
+        props: {
+            href: fileLink,
+            rel: 'stylesheet',
+        },
+        tag: 'link',
+    });
 
-const loadJs = ({ fileLink, id }) => appendFileLink({
-    id,
-    props: {
-        src: fileLink,
-        type: 'text/javascript',
-    },
-    tag: 'script',
-});
+const loadJs = ({ fileLink, id }) =>
+    appendFileLink({
+        id,
+        props: {
+            src: fileLink,
+            type: 'text/javascript',
+        },
+        tag: 'script',
+    });
 
 const removeFileLink = (id) => {
     if (document.getElementById(id)) {

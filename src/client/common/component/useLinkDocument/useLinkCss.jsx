@@ -9,30 +9,29 @@ const fileMap = {
 const tracker = {};
 
 const useLinkCss = ({ id, remove = false }) => {
-    if(!fileMap.hasOwnProperty(id)) {
+    if (!fileMap.hasOwnProperty(id)) {
         throw new Error(`Unable to useLinkCss with "${id}"`);
     }
 
     useEffect(() => {
         loadCss({ fileLink: fileMap[id], id });
 
-        if(remove) {
-            if(!tracker[id]) {
+        if (remove) {
+            if (!tracker[id]) {
                 tracker[id] = 1;
-            }
-            else {
+            } else {
                 tracker[id]++;
             }
         }
         return () => {
-            if(remove && tracker[id]) {
+            if (remove && tracker[id]) {
                 tracker[id]--;
-                if(tracker[id] <= 0) {
+                if (tracker[id] <= 0) {
                     delete tracker[id];
                     removeFileLink(id);
                 }
             }
-        }
+        };
     }, []);
 };
 

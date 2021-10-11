@@ -29,13 +29,20 @@ const RuneList = () => {
         <div>
             <div className='header'>
                 <h2>Rune list</h2>
-                <InputGroup>
+                <InputGroup size='sm'>
                     <InputGroup.Text>Filter</InputGroup.Text>
-                    <FormControl onChange={onChange} value={filter} type='text'/>
+                    <FormControl
+                        onChange={onChange}
+                        placeholder='Rune name'
+                        type='text'
+                        value={filter}
+                    />
                 </InputGroup>
             </div>
             <ul className='list'>
-                {runeList.map((entry, key) => <RuneListEntry key={key} {...entry} />)}
+                {runeList.map((entry, key) => (
+                    <RuneListEntry key={key} {...entry} />
+                ))}
             </ul>
         </div>
     );

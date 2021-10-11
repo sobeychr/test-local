@@ -11,7 +11,7 @@ const useRune = create((set, get) => ({
     runewords: [],
 
     loadRune: async () => {
-        if(!get().isRuneLoaded) {
+        if (!get().isRuneLoaded) {
             set({ isRuneLoaded: true });
             const data = await fetchJson('/api/rune');
             set({ runes: Rune.parseList(data) });
@@ -19,14 +19,14 @@ const useRune = create((set, get) => ({
     },
 
     loadRuneWord: async () => {
-        if(!get().isRuneWordLoaded) {
+        if (!get().isRuneWordLoaded) {
             set({ isRuneWordLoaded: true });
             const data = await fetchJson('/api/runeword');
             set({ runewords: RuneWord.parseList(data) });
         }
     },
 
-    validateRune: searchName => get().runes.find(({ name }) => name === searchName),
+    validateRune: (searchName) => get().runes.find(({ name }) => name === searchName),
 }));
 
 export default useRune;

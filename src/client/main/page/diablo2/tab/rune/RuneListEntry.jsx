@@ -8,10 +8,14 @@ const RuneListEntry = ({ armor, level, name, weapon }) => (
             <span className='name'>{name}</span>
         </span>
         <span className='weapon'>
-            {weapon.map((entry, key) => <span key={key}>{entry}</span>)}
+            {weapon.map((entry, key) => (
+                <span key={key}>{entry}</span>
+            ))}
         </span>
         <span className='armor'>
-            {armor.map((entry, key) => <span key={key}>{entry}</span>)}
+            {armor.map((entry, key) => (
+                <span key={key}>{entry}</span>
+            ))}
         </span>
         <span className='level'>{level}</span>
     </li>

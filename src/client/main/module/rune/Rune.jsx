@@ -10,7 +10,10 @@ class Rune extends Model {
 
     static parseList = (list) => list.map((entry) => new Rune(entry));
 
-    static validateList = filter => ({ name }) => name.toLowerCase().includes(filter.toLowerCase());
+    static validateList =
+        (filter) =>
+        ({ name }) =>
+            name.toLowerCase().includes(filter.toLowerCase());
 }
 
 export default Rune;

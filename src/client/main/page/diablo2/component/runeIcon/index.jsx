@@ -16,7 +16,7 @@ const RuneIcon = ({ name }) => {
     }, []);
     */
 
-    return <div className={`runeIcon icon-rune${name}`}/>;
-}
+    return <div className={`runeIcon icon-rune${name}`} />;
+};
 
 export default RuneIcon;
