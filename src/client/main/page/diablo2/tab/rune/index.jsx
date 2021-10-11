@@ -4,7 +4,7 @@ import './rune.scss';
 
 const RuneTab = () => {
     return (
-        <div className='tab-rune'>
+        <div className='tab tab-rune'>
             <RuneList />
         </div>
     );

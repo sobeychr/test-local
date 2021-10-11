@@ -1,6 +1,7 @@
 import create from 'zustand';
 import { fetchJson } from '@api';
 import Rune from './Rune';
+import RuneWord from './RuneWord';
 
 const useRune = create((set, get) => ({
     isRuneLoaded: false,
@@ -16,6 +17,16 @@ const useRune = create((set, get) => ({
             set({ runes: Rune.parseList(data) });
         }
     },
+
+    loadRuneWord: async () => {
+        if(!get().isRuneWordLoaded) {
+            set({ isRuneWordLoaded: true });
+            const data = await fetchJson('/api/runeword');
+            set({ runewords: RuneWord.parseList(data) });
+        }
+    },
+
+    validateRune: searchName => get().runes.find(({ name }) => name === searchName),
 }));
 
 export default useRune;

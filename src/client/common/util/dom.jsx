@@ -1,3 +1,16 @@
+const appendFileLink = ({ id, props, tag }) => {
+    if (!document.getElementById(id)) {
+        const element = createElement({
+            props: {
+                ...props,
+                id,
+            },
+            tag,
+        });
+        document.head.append(element);
+    }
+};
+
 const createElement = ({ props, tag }) => {
     const element = document.createElement(tag);
     Object.keys(props).forEach((key) => {
@@ -6,24 +19,28 @@ const createElement = ({ props, tag }) => {
     return element;
 };
 
-const loadCss = ({ fileLink, id }) => {
-    if (!document.getElementById(id)) {
-        const element = createElement({
-            props: {
-                id,
-                href: fileLink,
-                rel: 'stylesheet',
-            },
-            tag: 'link',
-        });
-        document.head.append(element);
-    }
-};
+const loadCss = ({ fileLink, id }) => appendFileLink({
+    id,
+    props: {
+        href: fileLink,
+        rel: 'stylesheet',
+    },
+    tag: 'link',
+});
 
-const removeCss = (id) => {
+const loadJs = ({ fileLink, id }) => appendFileLink({
+    id,
+    props: {
+        src: fileLink,
+        type: 'text/javascript',
+    },
+    tag: 'script',
+});
+
+const removeFileLink = (id) => {
     if (document.getElementById(id)) {
         document.getElementById(id).remove();
     }
 };
 
-export { createElement, loadCss, removeCss };
+export { appendFileLink, createElement, loadCss, removeFileLink };

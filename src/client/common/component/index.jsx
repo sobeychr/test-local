@@ -1,5 +1,5 @@
 import Header from './header';
 import ModalLoading from './modalLoading';
-import useSheetStyle from './useSheetStyle';
+import * as useLinkDocument from './useSheetStyle';
 
-export { Header, ModalLoading, useSheetStyle };
+export { Header, ModalLoading, ...useLinkDocument };

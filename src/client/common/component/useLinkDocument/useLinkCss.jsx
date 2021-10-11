@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { loadCss, removeCss } from '@util/dom';
+import { loadCss, removeFileLink } from '@util/dom';
 import { RUNES } from './entries';
 
 const fileMap = {
@@ -8,26 +8,32 @@ const fileMap = {
 
 const tracker = {};
 
-const useSheetStyle = ({ id, remove = false }) => {
+const useLinkCss = ({ id, remove = false }) => {
+    if(!fileMap.hasOwnProperty(id)) {
+        throw new Error(`Unable to useLinkCss with "${id}"`);
+    }
+
     useEffect(() => {
         loadCss({ fileLink: fileMap[id], id });
 
-        if(!tracker[id]) {
-            tracker[id] = 1;
-        }
-        else {
-            tracker[id]++;
+        if(remove) {
+            if(!tracker[id]) {
+                tracker[id] = 1;
+            }
+            else {
+                tracker[id]++;
+            }
         }
         return () => {
             if(remove && tracker[id]) {
                 tracker[id]--;
                 if(tracker[id] <= 0) {
                     delete tracker[id];
-                    removeCss(id);
+                    removeFileLink(id);
                 }
             }
         }
     }, []);
 };
 
-export default useSheetStyle;
+export default useLinkCss;

@@ -1,17 +1,17 @@
 import React from 'react';
-import RuneIcon from './RuneIcon';
+import RuneIcon from '../../component/runeIcon';
 
 const RuneListEntry = ({ armor, level, name, weapon }) => (
-    <li className='tab-rune--list--entry'>
+    <li className='entry'>
         <span className='title'>
             <RuneIcon name={name} />
             <span className='name'>{name}</span>
         </span>
         <span className='weapon'>
-            {weapon.map(entry => <span>{entry}</span>)}
+            {weapon.map((entry, key) => <span key={key}>{entry}</span>)}
         </span>
         <span className='armor'>
-            {armor.map(entry => <span>{entry}</span>)}
+            {armor.map((entry, key) => <span key={key}>{entry}</span>)}
         </span>
         <span className='level'>{level}</span>
     </li>

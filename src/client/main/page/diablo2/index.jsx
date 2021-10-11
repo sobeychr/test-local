@@ -2,13 +2,17 @@ import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Header from '@component/header';
-
-import { RuneTab, SetTab, UniqueTab } from './tab';
+import { RuneTab, RuneWordTab, SetTab, UniqueTab } from './tab';
+import './diablo2.scss';
 
 const tabs = [
     {
         Component: RuneTab,
         name: 'Runes',
+    },
+    {
+        Component: RuneWordTab,
+        name: 'Runewords',
     },
     {
         Component: SetTab,
