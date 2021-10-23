@@ -6,25 +6,6 @@ import { getTimestampFullDate, timestampToString } from '@util/date';
 const NA = 'N/A';
 
 class Workout extends Model {
-    static average = {
-        calory: 0,
-        distance: 0,
-        split: 0,
-        stroke: 0,
-        time: 0,
-        watt: 0,
-    };
-
-    static averageDisplay = {
-        calory: '',
-        diffDate: '',
-        distance: '',
-        split: '',
-        stroke: '',
-        time: '',
-        watt: '',
-    };
-
     static fields = {
         calory: 0,
         date: 0,
@@ -45,6 +26,7 @@ class Workout extends Model {
         },
     };
 
+    /*
     static dataToDisplay = ({ calory, date, distance, split, stroke, time, watt }) => ({
         calory: calory ? `${calory}cal` : NA,
         date: date ? getTimestampFullDate(date) : NA,
@@ -99,6 +81,15 @@ class Workout extends Model {
 
         return entries;
     };
+    */
+    static parseList = (list) => {
+        /*
+        const entries = list.map((entry) => new Workout(entry)).sort(this.sort);
+
+        return entries;
+        */
+        return [];
+    }
 
     static sort = (a, b) => (a.date > b.date ? -1 : 1);
 }

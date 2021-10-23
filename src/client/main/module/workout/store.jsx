@@ -2,12 +2,16 @@ import create from 'zustand';
 import { fetchJson, sendJson } from '@api';
 import Workout from './Workout';
 
-const useWorkout = create((set) => ({
+const useWorkout = create((set, get) => ({
+    isLoaded: false,
     workouts: [],
 
     load: async () => {
-        const data = await fetchJson('/api/row');
-        set({ workouts: Workout.parseList(data) });
+        if (!get().isLoaded) {
+            set({ isLoaded: true });
+            const data = await fetchJson('/api/row');
+            set({ workouts: Workout.parseList(data) });
+        }
     },
 
     send: async (workout) => {
@@ -20,11 +24,13 @@ const useWorkout = create((set) => ({
     },
 }));
 
+/*
 useWorkout.subscribe(({ workouts: updated }, { workouts: previous }) =>
     console.log('%cWorkout Update', 'color:#0d0', {
         previous,
         updated,
     }),
 );
+*/
 
 export default useWorkout;

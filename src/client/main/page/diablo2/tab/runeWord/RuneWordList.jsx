@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, InputGroup } from 'react-bootstrap';
+import FormControl from 'react-bootstrap/formcontrol';
+import InputGroup from 'react-bootstrap/inputgroup';
 import useRune from '@module/rune/store';
 import RuneWord from '@module/rune/RuneWord';
 import FilterType from './FilterType';

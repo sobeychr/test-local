@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/formcontrol';
+import InputGroup from 'react-bootstrap/inputgroup';
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from 'react-bootstrap/modalbody';
 import ModalFooter from 'react-bootstrap/modalfooter';
@@ -11,58 +12,43 @@ import ModalHeader from 'react-bootstrap/modalheader';
 import ModalTitle from 'react-bootstrap/modaltitle';
 import Row from 'react-bootstrap/Row';
 
+import { splitCalc } from '@module/workout/helper';
 import { timestampToString, timeStringToTimestamp } from '@util/date';
-// import { chunk } from '@util/string';
-
-// import splitCalc from '../splitCalc';
-
-const REG_NUM = /[^\d]+/;
-const REG_SPACE = /\s+$/;
-const parseInput = (string) => string.replace(REG_NUM, '').replace(REG_SPACE, '');
-
-const LENGTH_DIST = 4;
-const LENGTH_TIME = 2;
+import { stripNonNumber } from '@util/string';
 
 const ModalSplit = ({ onClose, show }) => {
     const [distance, setDistance] = useState('');
-    const [minute, setMinute] = useState('');
-    const [second, setSecond] = useState('');
     const [split, setSplit] = useState('');
+    const [time, setTime] = useState('');
 
     const onDistance = ({ target: { value = '' } }) => {
-        const parseValue = parseInput(value);
-        setDistance(parseValue);
+        setDistance(stripNonNumber(value));
     };
 
-    const onMinute = ({ target: { value = '' } }) => {
-        const parseValue = parseInput(value);
-        setMinute(parseValue);
-    };
-
-    const onSecond = ({ target: { value = '' } }) => {
-        const parseValue = parseInput(value);
-        setSecond(parseValue);
+    const onTime = ({ target: { value = '' } }) => {
+        const parsedValue = stripNonNumber(value)
+            .split('')
+            .reverse()
+            .map((entry, key) => `${entry}${key > 0 && key % 2 === 0 ? ':' : ''}`)
+            .reverse()
+            .join('');
+        setTime(parsedValue);
     };
 
     const onReset = () => {
         setDistance('');
         setSplit('');
-        setMinute('');
-        setSecond('');
+        setTime('');
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        /*
-        const splitTime = splitCalc({
+        const calc = splitCalc({
             distance,
-            minute,
-            second,
+            duration: timeStringToTimestamp(time),
         });
-        setSplit(timestampToString(splitTime, true));
-        */
-        splitTime = 'ttt';
+        const timestring = timestampToString(calc);
+        setSplit(timestring);
     };
 
     useEffect(() => {
@@ -78,33 +64,30 @@ const ModalSplit = ({ onClose, show }) => {
                 <ModalBody>
                     <Row>
                         <Col>
-                            <FormControl
-                                maxLength={LENGTH_DIST}
-                                onChange={onDistance}
-                                placeholder='distance (m)'
-                                type='text'
-                                value={distance}
-                            />
+                            <InputGroup size='sm'>
+                                <InputGroup.Text>Distance (m)</InputGroup.Text>
+                                <FormControl
+                                    maxLength={5}
+                                    onChange={onDistance}
+                                    placeholder='distance (m)'
+                                    type='text'
+                                    value={distance}
+                                />
+                            </InputGroup>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <FormControl
-                                maxLength={LENGTH_TIME}
-                                onChange={onMinute}
-                                placeholder='minutes'
-                                type='text'
-                                value={minute}
-                            />
-                        </Col>
-                        <Col>
-                            <FormControl
-                                maxLength={LENGTH_TIME}
-                                onChange={onSecond}
-                                placeholder='seconds'
-                                type='text'
-                                value={second}
-                            />
+                            <InputGroup size='sm'>
+                                <InputGroup.Text>Time (hh:mm:ss)</InputGroup.Text>
+                                <FormControl
+                                    maxLength={8}
+                                    onChange={onTime}
+                                    placeholder='00:00:00'
+                                    type='text'
+                                    value={time}
+                                />
+                            </InputGroup>
                         </Col>
                     </Row>
                     <Row>

@@ -10,13 +10,13 @@ const timeStringToTimestamp = (string) => {
     const split = string.split(':');
 
     if (split.length === 1) {
-        return parseInt(split[0], 10);
+        return +split[0];
     } else if (split.length === 2) {
         const [minutes, seconds] = split;
-        return parseInt(minutes, 10) * 60 + parseInt(seconds, 10);
+        return +minutes * DUR_MINUTE + +seconds;
     } else if (split.length === 3) {
         const [hours, minutes, seconds] = split;
-        return parseInt(hours, 10) * 60 * 60 + parseInt(minutes, 10) * 60 + parseInt(seconds, 10);
+        return +hours * DUR_HOUR + +minutes * DUR_MINUTE + +seconds;
     }
 
     throw new Error('Unable to parse TimeString', {
