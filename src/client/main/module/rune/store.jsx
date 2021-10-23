@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { fetchJson } from '@api';
+import { fetchJson } from '@api/fetch';
 import Rune from './Rune';
 import RuneWord from './RuneWord';
 

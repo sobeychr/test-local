@@ -46,14 +46,16 @@ const getTimestampTime = (ts) => {
 const getTimestampFullDate = (ts) => `${getTimestampDate(ts)} ${getTimestampTime(ts)}`;
 
 const timestampToString = (ts, ms = false) => {
-    const weeks = Math.floor(ts / DUR_WEEK);
-    const days = Math.floor((ts % DUR_WEEK) / DUR_DAY);
-    const hours = Math.floor((ts % DUR_DAY) / DUR_HOUR);
-    const minutes = Math.floor((ts % DUR_HOUR) / DUR_MINUTE);
-    const seconds = Math.floor((ts % DUR_MINUTE) / DUR_SECOND);
-    const milliseconds = Math.floor(ts % DUR_SECOND);
+    const ti = Math.abs(ts);
 
-    return [
+    const weeks = Math.floor(ti / DUR_WEEK);
+    const days = Math.floor((ti % DUR_WEEK) / DUR_DAY);
+    const hours = Math.floor((ti % DUR_DAY) / DUR_HOUR);
+    const minutes = Math.floor((ti % DUR_HOUR) / DUR_MINUTE);
+    const seconds = Math.floor((ti % DUR_MINUTE) / DUR_SECOND);
+    const milliseconds = Math.floor(ti % DUR_SECOND);
+
+    const times = [
         weeks && `${weeks}w`,
         days && `${days}d`,
         hours && `${leadingZero(hours)}h`,
@@ -63,6 +65,8 @@ const timestampToString = (ts, ms = false) => {
     ]
         .filter(Boolean)
         .join(' ');
+
+    return `${ts < 0 ? '-' : ''}${times}`;
 };
 
 export {

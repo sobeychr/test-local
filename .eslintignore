@@ -3,6 +3,8 @@ node_modules/*
 yarn.lock
 yarn-error.log
 
+src/client/main/page/workout
+
 **/*.min.*
 **/*.gif
 **/*.jpg

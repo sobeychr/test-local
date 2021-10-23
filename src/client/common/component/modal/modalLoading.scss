@@ -8,6 +8,11 @@
 }
 
 .modal-loading {
+    &.modal {
+        background: rgba(0, 0, 0, 0.6);
+        transition: background 0.3s linear;
+    }
+
     .modal-content {
         animation: rotate 1s infinite linear;
         background: transparent;

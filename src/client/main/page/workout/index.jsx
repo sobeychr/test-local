@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import Header from '@component/header';
 import useWorkout from '@module/workout/store';
@@ -39,7 +38,7 @@ const WorkoutPage = () => {
     }, []);
 
     return (
-        <div>
+        <div className='page page-workout'>
             <Header page='Workout' />
             <section className='buttons'>
                 <ButtonSplit onClick={onShowSplit} />

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import HomeLink from './HomeLink';
 import './home.scss';
 
@@ -11,7 +10,7 @@ const links = [
 ];
 
 const HomePage = () => (
-    <div>
+    <div className='page page-home'>
         <h1>Local React</h1>
         <nav className='home-nav'>
             {links.map((entry, key) => (

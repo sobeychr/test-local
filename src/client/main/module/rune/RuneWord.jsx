@@ -64,16 +64,19 @@ class RuneWord extends Model {
             }
 
             if (filterRune) {
-                const findRunes = filterRune.toLowerCase().split(' ').filter(entry => entry.length > 0);
+                const findRunes = filterRune
+                    .toLowerCase()
+                    .split(' ')
+                    .filter((entry) => entry.length > 0);
                 const listRunes = runeorder.join(' ').toLowerCase().split(' ');
-                findRunes.forEach(entry => {
+                findRunes.forEach((entry) => {
                     const index = listRunes.indexOf(entry);
-                    if(index >= 0) {
+                    if (index >= 0) {
                         listRunes.splice(index, 1);
                     }
                 });
                 const validRunes = listRunes.length + findRunes.length === runeorder.length;
-                if(!validRunes) {
+                if (!validRunes) {
                     return false;
                 }
             }

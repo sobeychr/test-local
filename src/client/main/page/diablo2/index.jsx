@@ -32,7 +32,7 @@ const Diablo2Page = () => {
     ));
 
     return (
-        <div>
+        <div className='page page-diablo2'>
             <Header page='Diablo 2' />
             <Tabs>{tabComponents}</Tabs>
         </div>

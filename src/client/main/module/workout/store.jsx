@@ -1,5 +1,6 @@
 import create from 'zustand';
-import { fetchJson, sendJson } from '@api';
+import { fetchJson } from '@api/fetch';
+import { sendJson } from '@api/send';
 import Workout from './Workout';
 
 const useWorkout = create((set, get) => ({
@@ -23,14 +24,5 @@ const useWorkout = create((set, get) => ({
         set({ workouts: Workout.parseList(data) });
     },
 }));
-
-/*
-useWorkout.subscribe(({ workouts: updated }, { workouts: previous }) =>
-    console.log('%cWorkout Update', 'color:#0d0', {
-        previous,
-        updated,
-    }),
-);
-*/
 
 export default useWorkout;

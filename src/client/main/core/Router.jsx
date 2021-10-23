@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-
 import { Diablo2Page, HomePage, NotFound, ParserPage, TimerPage, WorkoutPage } from '@page';
 
 const Router = () => (

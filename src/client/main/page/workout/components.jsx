@@ -1,8 +1,6 @@
-/* eslint-disable */
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
-import ModalLoading from '@component/modalLoading';
+import ModalLoading from '@component/modal/ModalLoading';
 import ModalAddEntry from './addEntry';
 import ModalSplit from './split';
 

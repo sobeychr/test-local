@@ -1,12 +1,13 @@
-/* eslint-disable */
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { timestampToString } from '@util/date';
-import diffEntries from './differences';
+import Difference from '@module/workout/Difference';
+import './workoutEntry.scss';
 
 const Entry = ({ current, next }) => {
+    const difference = new Difference({ current, next });
+
     const {
         display: {
             calory: dCal,
@@ -20,24 +21,26 @@ const Entry = ({ current, next }) => {
     } = current;
 
     const {
-        calory: diffCal,
-        date: diffDate,
-        distance: diffDist,
-        split: diffSplit,
-        stroke: diffStroke,
-        time: diffTime,
-        watt: diffWatt,
-    } = {};
+        display: {
+            calory: diffCal,
+            date: diffDate,
+            distance: diffDist,
+            split: diffSplit,
+            stroke: diffStroke,
+            time: diffTime,
+            watt: diffWatt,
+        } = {},
+    } = difference;
 
-    const ttt = diffEntries(current, next);
+    const onClick = () => console.log('difference', difference);
 
     return (
-        <Card as='article' className='workout-entry'>
+        <Card as='article' className='workout-entry' onClick={onClick}>
             <Card.Header className='header'>
                 <span className='title'>Workout entry</span>
                 <span className='date'>
                     {dDate}
-                    <span className='diff'>{diffDate && timestampToString(diffDate)}</span>
+                    {diffDate && <span className='diff'>{diffDate}</span>}
                 </span>
             </Card.Header>
             <Card.Body className='body'>
@@ -46,14 +49,14 @@ const Entry = ({ current, next }) => {
                         <span className='title'>Stroke:</span>
                         <span className='value'>
                             {dStroke}
-                            <span className='diff'>{diffStroke}</span>
+                            {diffStroke && <span className='diff'>{diffStroke}</span>}
                         </span>
                     </Col>
                     <Col className='value-entry'>
                         <span className='title'>Watts:</span>
                         <span className='value'>
                             {dWatt}
-                            <span className='diff'>{diffWatt}</span>
+                            {diffWatt && <span className='diff'>{diffWatt}</span>}
                         </span>
                     </Col>
                 </Row>
@@ -62,14 +65,14 @@ const Entry = ({ current, next }) => {
                         <span className='title'>Distance:</span>
                         <span className='value'>
                             {dDist}
-                            <span className='diff'>{diffDist}</span>
+                            {diffDist && <span className='diff'>{diffDist}</span>}
                         </span>
                     </Col>
                     <Col className='value-entry'>
                         <span className='title'>Time:</span>
                         <span className='value'>
                             {dTime}
-                            <span className='diff'>{diffTime}</span>
+                            {diffTime && <span className='diff'>{diffTime}</span>}
                         </span>
                     </Col>
                 </Row>
@@ -78,7 +81,7 @@ const Entry = ({ current, next }) => {
                         <span className='title'>Calories:</span>
                         <span className='value'>
                             {dCal}
-                            <span className='diff'>{diffCal}</span>
+                            {diffCal && <span className='diff'>{diffCal}</span>}
                         </span>
                     </Col>
                 </Row>
@@ -87,7 +90,7 @@ const Entry = ({ current, next }) => {
                         <span className='title'>Split:</span>
                         <span className='value'>
                             {dSplit}
-                            <span className='diff'>{diffSplit}</span>
+                            {diffSplit && <span className='diff'>{diffSplit}</span>}
                         </span>
                     </Col>
                 </Row>
