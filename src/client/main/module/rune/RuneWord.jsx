@@ -64,12 +64,15 @@ class RuneWord extends Model {
             }
 
             if (filterRune) {
-                const findRunes = filterRune.toLowerCase().split(' ');
+                const findRunes = filterRune.toLowerCase().split(' ').filter(entry => entry.length > 0);
                 const listRunes = runeorder.join(' ').toLowerCase().split(' ');
-                const intersectRunes = findRunes
-                    .map((entry) => listRunes.includes(entry) && entry)
-                    .filter(Boolean);
-                const validRunes = intersectRunes.length === findRunes.length;
+                findRunes.forEach(entry => {
+                    const index = listRunes.indexOf(entry);
+                    if(index >= 0) {
+                        listRunes.splice(index, 1);
+                    }
+                });
+                const validRunes = listRunes.length + findRunes.length === runeorder.length;
                 if(!validRunes) {
                     return false;
                 }
