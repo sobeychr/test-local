@@ -1,5 +1,16 @@
-node_modules/
-dist/*.js
-dist/*.map
+_pre*/
 
-yarn-error.log
+build/
+built/
+coverage/
+eslintcache/
+node_modules/
+tmp/
+
+.DS_store
+.env.dev.local
+.eslintcache
+.idea
+
+*.log*
+*.min.*

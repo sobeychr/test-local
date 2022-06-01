@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "noImpliciAny": false,
+        "outDir": "built/",
+        "sourceMap": true,
+        "strict": true,
+        "target": "ESNext",
+        "types": ["vite/client"]
+    },
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "include": ["./src/**/*"]
+}

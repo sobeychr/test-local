@@ -10,10 +10,13 @@ max_line_length = 100
 trim_trailing_whitespace = true
 quote_type = single
 
-[*.json]
+[*.{json,html,sh,yml,yaml}]
 indent_size = 2
 quote_type = double
 
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[*.php]
+insert_final_newline = false
