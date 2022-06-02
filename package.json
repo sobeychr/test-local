@@ -20,7 +20,9 @@
     "fs-extra": "^10.1.0",
     "git-last-commit": "^1.0.1",
     "lodash-es": "^4.17.21",
+    "sass": "^1.52.1",
     "typescript": "^4.7.2",
+    "uvu": "^0.5.3",
     "vite": "^2.9.9",
     "vite-plugin-solid": "^2.2.6"
   },

@@ -23,6 +23,11 @@ const configs = defineConfig(async({ mode }) => {
             target: 'esnext',
             polyfillDynamicImport: false,
         },
+        css: {
+            modules: {
+                localsConvention: 'camelCaseOnly',
+            },
+        },
         clearScreen: false,
         define: {
             GLOBALS: {
